@@ -1,17 +1,12 @@
--- 基础设置
-require('basic')
-
--- 按键设置
-require('keybindings')
-
+-- 基础配置
+require("basic")
+-- Packer插件管理
+require("plugins")
+-- 快捷键映射
+require("keybindings")
+-- 主题设置
+require("colorscheme")
 -- 插件配置
-require('plugins')
-
--- 主题配置
-require('colorscheme')
-
--- 插件 nvim-tree 配置
 require("plugin-config.nvim-tree")
-
--- 插件 bufferline 配置
 require("plugin-config.bufferline")
+require("plugin-config.lualine")
