@@ -18,15 +18,15 @@ nvim_tree.setup({
         update_cwd = true,
     },
     -- 隐藏 .文件 和 node_modules 文件夹
-    filters = {
-        dotfiles = true,
-        custom = { 'node_modules' },
-    },
+    -- filters = {
+    --  dotfiles = true,
+    --  custom = { 'node_modules' },
+    --},
     view = {
         -- 宽度
         width = 40,
         -- 也可以 'right'
-        side = 'left',
+        side = 'right',
         -- 隐藏根目录
         hide_root_folder = false,
         -- 自定义列表中快捷键
@@ -45,7 +45,7 @@ nvim_tree.setup({
             -- 首次打开大小适配
             resize_window = true,
             -- 打开文件时关闭
-            quit_on_open = true,
+            quit_on_open = false,
         },
     },
     -- wsl install -g wsl-open
