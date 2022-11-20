@@ -5,7 +5,7 @@ vim.g.maplocalleader = " "
 -- 复用按键映射的函数
 local map = vim.api.nvim_set_keymap
 -- 复用 opt 参数
-local opt = {noremap = true, silent = true }
+local opt = { noremap = true, silent = true }
 
 -- 窗口管理
 -- 取消 s 默认功能
@@ -70,7 +70,7 @@ map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = {
   -- 打开文件或文件夹
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
+  { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
   -- 分屏打开文件
   { key = "v", action = "vsplit" },
   { key = "h", action = "split" },
@@ -147,6 +147,31 @@ pluginKeys.mapLSP = function(mapbuf)
   -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
   -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
   -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+end
+
+-- nvim-cmp 自动补全
+pluginKeys.cmp = function(cmp)
+  return {
+    -- 出现补全
+    ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    -- 取消
+    ["<A-,>"] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close()
+    }),
+    -- 上一个
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    -- 下一个
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    -- 确认
+    ["<CR>"] = cmp.mapping.confirm({
+      select = true,
+      behavior = cmp.ConfirmBehavior.Replace
+    }),
+    -- 如果窗口内容太多，可以滚动
+    ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+    ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+  }
 end
 
 return pluginKeys
