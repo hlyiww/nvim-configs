@@ -5,7 +5,10 @@ packer.startup({
     use 'wbthomason/packer.nvim'
     -- 你的插件列表...
     use 'hlyiww/dracula_pro.nvim'
+    -- nvim-tree
     use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+    -- bufferline
+    use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }})
   end,
   config = {
     display = {
