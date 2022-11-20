@@ -53,6 +53,12 @@ nvim_tree.setup({
     system_open = {
         cmd = 'wsl-open', -- mac 直接设置为 open
     },
+
+    update_cwd = true,
+    update_focused_file = {
+      enable = true,
+      update_cwd = true,
+    },
 })
 -- 自动关闭
 vim.cmd([[
