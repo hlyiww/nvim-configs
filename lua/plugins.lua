@@ -34,11 +34,13 @@ packer.startup({
     use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
     use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
     use("hrsh7th/cmp-path") -- { name = 'path' }
-    use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
-
     -- 常见编程语言代码段
     use("rafamadriz/friendly-snippets")
-
+    -- ui
+    use("onsails/lspkind-nvim")
+    -- indent-blankline
+    use("lukas-reineke/indent-blankline.nvim")
+    use("tami5/lspsaga.nvim")
   end,
   config = {
     display = {
